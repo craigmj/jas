@@ -39,8 +39,8 @@ type Context struct {
 
 var NoJsonBody = errors.New("jas.Context: no json body")
 
-func (ctx *Context) Header() *http.Header {
-	return &ctx.ResponseHeader
+func (ctx *Context) ResponseWriter() http.ResponseWriter {
+	return ctx.responseWriter
 }
 
 //Write and flush the data.
