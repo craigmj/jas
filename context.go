@@ -39,6 +39,10 @@ type Context struct {
 
 var NoJsonBody = errors.New("jas.Context: no json body")
 
+func (ctx *Context) Header() *http.Header {
+	return &ctx.ResponseHeader
+}
+
 //Write and flush the data.
 //It can be used for http streaming or to write a portion of large amount of data.
 //If the type of the data is not []byte, it will be marshaled to json format.
